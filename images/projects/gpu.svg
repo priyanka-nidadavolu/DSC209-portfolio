@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1a12"/>
+      <stop offset="1" stop-color="#18301f"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#bg)"/>
+  <g>
+    <rect x="30" y="34" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="52" y="34" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="74" y="34" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="96" y="34" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="118" y="34" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="140" y="34" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="30" y="56" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="52" y="56" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="74" y="56" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="96" y="56" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="118" y="56" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="140" y="56" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="30" y="78" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="52" y="78" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="74" y="78" width="20" height="20" rx="3" fill="#76e4f7" fill-opacity="0.95"/>
+    <rect x="96" y="78" width="20" height="20" rx="3" fill="#76e4f7" fill-opacity="0.95"/>
+    <rect x="118" y="78" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="140" y="78" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="30" y="100" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="52" y="100" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="74" y="100" width="20" height="20" rx="3" fill="#76e4f7" fill-opacity="0.95"/>
+    <rect x="96" y="100" width="20" height="20" rx="3" fill="#76e4f7" fill-opacity="0.95"/>
+    <rect x="118" y="100" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="140" y="100" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="30" y="122" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="52" y="122" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="74" y="122" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="96" y="122" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="118" y="122" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="140" y="122" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="30" y="144" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="52" y="144" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="74" y="144" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="96" y="144" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="118" y="144" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+    <rect x="140" y="144" width="20" height="20" rx="3" fill="#ffffff" fill-opacity="0.14"/>
+  </g>
+  <text x="96" y="180" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#76e4f7">tiled ReLU(AB + C)</text>
+  <circle cx="300" cy="100" r="58" fill="none" stroke="#c8f08f" stroke-width="2" stroke-dasharray="6 5"/>
+    <rect x="278" y="27" width="44" height="30" rx="5" fill="#76b900"/><text x="300" y="47" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#0b1a12">GPU0</text>
+    <rect x="336" y="85" width="44" height="30" rx="5" fill="#76b900"/><text x="358" y="105" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#0b1a12">GPU1</text>
+    <rect x="278" y="143" width="44" height="30" rx="5" fill="#76b900"/><text x="300" y="163" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#0b1a12">GPU2</text>
+    <rect x="220" y="85" width="44" height="30" rx="5" fill="#76b900"/><text x="242" y="105" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#0b1a12">GPU3</text>
+  <text x="300" y="104" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#c8f08f">AllReduce</text>
+</svg>

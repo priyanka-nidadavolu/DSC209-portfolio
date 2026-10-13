@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1f2b"/>
+      <stop offset="1" stop-color="#33384d"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="200" fill="url(#bg)"/>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#d8dcef"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#f4a261"/></marker>
+  </defs>
+  <g stroke="#d8dcef" stroke-width="2" fill="none" marker-end="url(#f)">
+    <path d="M78,60 L150,88"/><path d="M78,140 L150,112"/><path d="M196,100 L254,100"/><path d="M300,100 L346,100"/>
+  </g>
+  <g stroke="#f4a261" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#g)">
+    <path d="M346,124 C320,160 230,160 196,126"/><path d="M152,128 C130,160 100,165 72,160"/>
+  </g>
+  <g font-family="ui-monospace, monospace" font-size="16" text-anchor="middle">
+    <circle cx="58" cy="56" r="20" fill="#5468ff"/><text x="58" y="62" fill="#fff">x</text>
+    <circle cx="58" cy="144" r="20" fill="#5468ff"/><text x="58" y="150" fill="#fff">W</text>
+    <circle cx="174" cy="100" r="24" fill="#d8dcef"/><text x="174" y="106" fill="#1c1f2b">×</text>
+    <circle cx="278" cy="100" r="24" fill="#d8dcef"/><text x="278" y="105" fill="#1c1f2b" font-size="12">attn</text>
+    <circle cx="364" cy="100" r="20" fill="#f4a261"/><text x="364" y="106" fill="#1c1f2b">L</text>
+  </g>
+  <text x="270" y="178" font-family="ui-monospace, monospace" font-size="12" fill="#f4a261">∂L/∂W</text>
+</svg>

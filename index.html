@@ -9,20 +9,54 @@
   <body>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a class="current" href="index.html">Home</a></li>
         <li><a href="projects/index.html">Projects</a></li>
         <li><a href="cv/index.html">CV</a></li>
         <li><a href="contact/index.html">Contact</a></li>
         <li><a href="https://github.com/priyanka-nidadavolu" target="_blank">GitHub</a></li>
       </ul>
     </nav>
-    <h1>Priyanka Nidadavolu</h1>
-    <img src="images/photo.svg" alt="Illustration of a bar chart with a rising orange trend line, captioned Data, Code, Viz" width="200" />
-    <p>
-      I'm a Data Science master's student at UC San Diego (expected December 2026) and a
-      Student Build and Release Engineer at UCSD. Before grad school I spent about
-      two and a half years as a software developer at IBM, working on CVE
-      resolution, containerized CI/CD pipelines, and LLM evaluation on WatsonX.
-    </p>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Data Science · ML Engineering</p>
+        <h1>Priyanka Nidadavolu</h1>
+        <p class="lead">
+          I build end-to-end AI systems, from LLM agents and RAG pipelines to data
+          infrastructure and evaluation.
+        </p>
+        <p class="actions">
+          <a class="button" href="projects/index.html">See my projects</a>
+          <a class="button secondary" href="cv/index.html">Read my CV</a>
+        </p>
+      </div>
+      <img src="images/photo.svg" alt="Illustration of a bar chart with a rising orange trend line, captioned Data, Code, Viz" width="200" />
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        I'm a Data Science master's student at UC San Diego (expected December 2026) and a
+        Student Build and Release Engineer with UCSD IT Services.
+      </p>
+      <p>
+        Before grad school I spent two and a half years at IBM, where I shipped an LLM-based
+        agent that routed CI/CD test runs and cut compute costs by 40%. Before that I did NLP
+        and speech research at Samsung PRISM. Most recently, my team took 2nd place in the
+        Cloud Track at DataHacks 2026 with
+        <a href="https://github.com/datahacks-2026/grid-green" target="_blank">GridGreen</a>,
+        a carbon-aware ML copilot.
+      </p>
+    </section>
+
+    <section>
+      <h2>Highlights</h2>
+      <ul class="stats">
+        <li><strong>40%</strong> lower cloud compute cost from an LLM agent I shipped at IBM</li>
+        <li><strong>90%</strong> faster data validation pipeline after an end-to-end rebuild</li>
+        <li><strong>2nd</strong> place, Cloud Track, DataHacks 2026 at UC San Diego</li>
+        <li><strong>+6%</strong> AUC over a published IJCAI 2017 recommendation baseline</li>
+      </ul>
+    </section>
   </body>
 </html>
