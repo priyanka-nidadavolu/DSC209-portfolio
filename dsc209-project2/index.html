@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deceptive Visualization | DSC 209R Project 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfbf9; --surface: #ffffff; --ink: #1d1d1b; --ink-2: #52514e; --muted: #8a8984;
+    --border: #e6e5e0; --blue: #2a78d6; --teal: #12976a; --red: #b42318;
+    --neg: #b42318; --neg-bg: #fdecea; --pos: #12976a; --pos-bg: #e6f6ef; --mid-bg: #f1f0ec;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 "Inter", system-ui, sans-serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  header.top { border-bottom: 1px solid var(--border); background: var(--surface); }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; font-size: 14px; }
+  header.top a { color: var(--ink-2); text-decoration: none; }
+  header.top a:hover { color: var(--blue); }
+  .hero { padding: 56px 0 28px; }
+  .eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin: 10px 0 14px; letter-spacing: -.01em; }
+  h2 { font-size: 26px; margin: 0 0 6px; letter-spacing: -.01em; }
+  h3 { font-size: 18px; margin: 32px 0 12px; }
+  p { margin: 0 0 14px; }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 760px; }
+  .prop { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--ink); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 26px 0 8px; max-width: 820px; }
+  .prop .label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
+  .prop .text { font-family: "Source Serif 4", Georgia, serif; font-size: 22px; line-height: 1.35; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: var(--ink-2); margin-top: 18px; }
+  .meta b { color: var(--ink); font-weight: 600; }
+  section.side { padding: 44px 0 12px; border-top: 1px solid var(--border); margin-top: 32px; }
+  .side-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+  .for .side-tag { background: var(--pos-bg); color: var(--pos); }
+  .against .side-tag { background: var(--neg-bg); color: var(--neg); }
+  .viz { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 24px 0 6px; max-width: 880px; }
+  .viz figure { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px; }
+  .viz img { width: 100%; height: auto; display: block; border-radius: 6px; }
+  .viz figcaption { font-size: 13px; color: var(--muted); padding: 8px 6px 2px; }
+  .viz-note { font-size: 14px; color: var(--ink-2); }
+  table.decisions { width: 100%; border-collapse: collapse; margin: 8px 0 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .decisions th, .decisions td { text-align: left; vertical-align: top; padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 15px; }
+  .decisions tr:last-child td { border-bottom: none; }
+  .decisions th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; background: #f7f7f4; }
+  .decisions td:first-child { width: 22%; font-weight: 600; }
+  .decisions td:nth-child(2) { width: 92px; }
+  .score { display: inline-block; min-width: 52px; text-align: center; font-weight: 700; font-size: 14px; padding: 3px 8px; border-radius: 6px; font-variant-numeric: tabular-nums; }
+  .s-neg { background: var(--neg-bg); color: var(--neg); }
+  .s-pos { background: var(--pos-bg); color: var(--pos); }
+  .s-mid { background: var(--mid-bg); color: var(--ink-2); }
+  .scale { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  section.reflection { padding: 44px 0 24px; border-top: 1px solid var(--border); margin-top: 32px; }
+  .reflection p { max-width: 760px; font-size: 16.5px; }
+  .checkpoint { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin: 20px 0; max-width: 820px; font-size: 15px; }
+  .checkpoint ul { margin: 6px 0 0; padding-left: 20px; }
+  .checkpoint li { margin-bottom: 6px; }
+  footer { border-top: 1px solid var(--border); padding: 24px 0 48px; font-size: 13px; color: var(--muted); margin-top: 24px; }
+  footer a { color: var(--ink-2); }
+  @media (max-width: 820px) {
+    .viz { grid-template-columns: 1fr; }
+    .decisions td:first-child { width: auto; }
+    .decisions thead { display: none; }
+    .decisions tr { display: block; border-bottom: 1px solid var(--border); padding: 6px 0; }
+    .decisions td { display: block; border: none; padding: 6px 16px; }
+  }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a href="../index.html">Priyanka Nidadavolu</a>
+  <span style="color:var(--muted)">DSC 209R · Project 2</span>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Project 2 · Deceptive Visualization</div>
+    <h1>Has life expectancy converged between rich and poor countries?</h1>
+    <p class="lede">Two visualizations use the same World Bank indicator, with one making the case for "yes" and the other making the case for "no." Under each visualization, I explain the design choices that make the argument more persuasive and score each choice from &minus;2 (fully deceptive) to +2 (fully earnest).</p>
+    <div class="prop">
+      <div class="label">Proposition</div>
+      <div class="text">Life expectancy in poor countries has converged with that of rich countries since 1960.</div>
+    </div>
+    <div class="meta">
+      <span><b>Dataset:</b> World Bank Human Development Indicators, health category (course repository, WDI release of Sept 2021)</span>
+      <span><b>Indicator:</b> Life expectancy at birth, total (SP.DYN.LE00.IN), plus total population (SP.POP.TOTL)</span>
+      <span><b>Years:</b> 1960 to 2019</span>
+      <span><b>Tools:</b> Python, pandas, matplotlib</span>
+    </div>
+  </div>
+
+  <!-- ===================== SIDE 1 ===================== -->
+  <section class="side for" id="side-for">
+    <span class="side-tag">Supports the proposition</span>
+    <h2>Visualization 1: The poorest countries are catching up</h2>
+    <div class="viz">
+      <figure>
+        <img src="side1_gap.png" alt="Two stacked charts. Top: life expectancy in high-income and low-income countries from 1960 to 2019, with an annotation that a child born in a low-income country in 2019 can expect to live 24 years longer than one born in 1960. Bottom: the gap between the groups, falling from 29 years to 17 years.">
+        <figcaption>1a. Income-group averages, 1960 to 2019.</figcaption>
+      </figure>
+      <figure>
+        <img src="side1_scatter.png" alt="Bubble scatter of 188 countries. Life expectancy in 1960 on the x-axis against years gained by 2019 on the y-axis. A downward trend line shows that countries starting lower gained more years.">
+        <figcaption>1b. Every country: starting level vs. years gained.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Design decisions</h3>
+    <div class="scale">Score: &minus;2 fully deceptive · 0 neutral · +2 fully earnest</div>
+    <table class="decisions">
+      <thead><tr><th>Decision</th><th>Score</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Frame the gain in human terms and lead with the absolute gap in years</td>
+          <td><span class="score s-pos">+1</span></td>
+          <td>I calculated the gain for each group (+24 vs. +12 years) and the gap between them (29.1 years in 1960 and 17.2 in 2019), then turned the low-income gain into a sentence about a child born in 2019. This uses the idea from the affective visualization readings (Lan et al.; Lee-Robbins and Adar) that the same number can feel different depending on how it is presented. The numbers themselves are accurate, and the title "The gap is closing" only says that the gap is getting smaller, not that the groups have reached the same level. I did not give it a full +2 because the averages hide countries that actually went backward, and the green line for low-income countries can also make the increase look more positive than it is.</td>
+        </tr>
+        <tr>
+          <td>Plot only the 1960 and 2019 endpoints in the scatter</td>
+          <td><span class="score s-neg">&minus;1.5</span></td>
+          <td>Panel 1b reduces 60 years of data to one number per country: the total years gained. That means a country like Zimbabwe, which lost 18 years during the AIDS epidemic and later recovered, can look like it had a fairly steady increase. The part of the trajectory that would most challenge my argument is never shown. This is subtle because the scatter includes all 188 countries with data, so it looks comprehensive. The missing information is in the time dimension, not the countries. I chose this instead of the checkpoint's slope chart, which had the same endpoint problem along with obvious cherry-picking.</td>
+        </tr>
+        <tr>
+          <td>Present a negative correlation (r = &minus;0.81) as evidence of catching up</td>
+          <td><span class="score s-neg">&minus;1</span></td>
+          <td>It is true that countries with lower life expectancy in 1960 tended to gain more years. The trend line and correlation coefficient make this look like strong statistical evidence of convergence. But part of the relationship is mechanical. A country like Norway, starting at 73 years in 1960, had much less room to gain 35 more years than a country starting much lower. So the negative relationship is partly a ceiling effect and regression toward the mean, rather than direct proof that poorer countries are catching up. Someone familiar with the economics literature on beta-convergence might notice this, but most readers would probably take the statistic at face value.</td>
+        </tr>
+        <tr>
+          <td>Size bubbles by population and label the big success stories</td>
+          <td><span class="score s-neg">&minus;0.5</span></td>
+          <td>Using population for bubble size is reasonable because it shows where more people actually live. But in this chart it also makes China (+33 years) and India (+28) much more noticeable, and both strongly support my argument. I then labeled China, India, Bangladesh, Ethiopia, and South Korea, which were the same high performers I used in the checkpoint slope chart, along with three rich countries for comparison. Smaller bubbles below the trend line, mostly from sub-Saharan Africa, become much easier to overlook.</td>
+        </tr>
+        <tr>
+          <td>Start the gap panel's y-axis at 15 instead of 0</td>
+          <td><span class="score s-neg">&minus;1</span></td>
+          <td>The lower panel shows the gap on a 15-to-33-year axis instead of starting at zero. This makes the line ending at around 17 years look like the gap is almost gone. If the axis started at zero, the 2019 gap would still be more than halfway up the chart, which gives a very different impression. A truncated axis is not automatically misleading for a line chart, and the tick labels are accurate. Since the panel is also placed below a chart with a wider scale, it can look like a zoomed-in view rather than an obvious manipulation. That is also why this choice is effective.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== SIDE 2 ===================== -->
+  <section class="side against" id="side-against">
+    <span class="side-tag">Opposes the proposition</span>
+    <h2>Visualization 2: The poorest countries are still far behind</h2>
+    <div class="viz">
+      <figure>
+        <img src="side2_lowincome.png" alt="Dot plot of all 27 low-income countries' life expectancy in 2019, sorted from Syria at 72.7 down to the Central African Republic at 53.3. A dashed line marks the high-income average in 1960 (68.6), and an arrow at the top shows the high-income average moving from 68.6 in 1960 to 80.9 in 2019. 24 countries fall below the 1960 line.">
+        <figcaption>2a. Low-income countries in 2019 vs. the rich world in 1960 and 2019.</figcaption>
+      </figure>
+      <figure>
+        <img src="side2_southern_africa.png" alt="Two stacked charts from 1985 to 2005 for Eswatini, Lesotho, Zimbabwe, Botswana and South Africa. Top: life expectancy declines after about 1990, with Eswatini falling from 62 to 43. Bottom: HIV prevalence among adults rises from under 6 percent in most countries in 1990 to between 16 and 26 percent by 2005.">
+        <figcaption>2b. Southern Africa, 1985 to 2005, with HIV prevalence below.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Design decisions</h3>
+    <div class="scale">Score: &minus;2 fully deceptive · 0 neutral · +2 fully earnest</div>
+    <table class="decisions">
+      <thead><tr><th>Decision</th><th>Score</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Benchmark today's low-income countries against the rich world of 1960, and show that target moving</td>
+          <td><span class="score s-neg">&minus;0.5</span></td>
+          <td>A dashed line shows the high-income average in 1960 (68.6), and an arrow at the top shows the rich world moving to 80.9. So every country is being compared against where rich countries were 60 years ago, while the arrow makes it look like the target keeps moving away. Both are technically true. The main issue is that the question changes from "is the gap narrowing?" to "has the gap closed?" I originally drew an arrow for every country from 1960 to 2019, but those arrows were longer than the rich world's, which made convergence very obvious. That is why I kept only the rich-world arrow.</td>
+        </tr>
+        <tr>
+          <td>Use the current low-income classification</td>
+          <td><span class="score s-neg">&minus;2</span></td>
+          <td>This is the most deceptive choice on the page and probably the hardest one to notice. The World Bank's "low income" group is based on current income, so countries that became richer and healthier, like China, India, Bangladesh, and South Korea, are no longer included. That means the countries left in the group are already more likely to be countries that did not catch up. Calling them "all 27 low-income countries" makes the group sound complete and neutral, but it creates a kind of reverse survivorship bias. It also creates a strange result with Ethiopia. In Visualization 1, Ethiopia looks like a success story with a 28-year increase, but here it looks like a laggard.</td>
+        </tr>
+        <tr>
+          <td>Replace the truncated bar chart with a sorted dot plot</td>
+          <td><span class="score s-pos">+1</span></td>
+          <td>In the checkpoint, I compared the top 5 and bottom 5 countries using bars that started at 40. That made the gap look much bigger, and it was also an obvious trick that most readers would catch. The dot plot focuses on position instead of bar length, so using a non-zero axis from 50 to 85 is reasonable. Showing every country instead of only the extremes also makes the chart look more transparent. The problem is that the main source of the misleading story has moved upstream into the classification, where it is harder to notice.</td>
+        </tr>
+        <tr>
+          <td>Show southern Africa only from 1985 to 2005</td>
+          <td><span class="score s-neg">&minus;2</span></td>
+          <td>The time window starts just before the AIDS-related decline and ends close to the bottom. The data actually continues to 2019, when Botswana had recovered to 69.6, above its 1990 peak, and Eswatini and Zimbabwe had recovered much of their losses. The subtitle gives the cause, HIV/AIDS, and includes the factual claim about 1960 levels. That makes the chart look more credible while also taking attention away from the missing recovery. Starting the y-axis at 40 is normal for a line chart, although it makes the decline look more dramatic. The title is also technically accurate: "up to 19 years in 15 years." But it focuses on the worst case without showing what happened afterward.</td>
+        </tr>
+        <tr>
+          <td>Add an HIV prevalence panel as causal evidence</td>
+          <td><span class="score s-pos">+0.5</span></td>
+          <td>The lower panel adds HIV prevalence from the same health dataset and shows it rising from a few percent to more than a fifth of adults while life expectancy was falling. This makes the visualization look more complete because it adds real context and helps explain the decline instead of only showing it. That also makes the time window in 2b more convincing. But the panel can still be misleading because the full data tells a more complicated story. In 2019, HIV prevalence was still 27% in Eswatini, but life expectancy had recovered to 60 as antiretroviral therapy coverage increased from 7% to 96%. Stopping the chart in 2005 makes HIV look like a permanent explanation for the decline, even though the later data shows that the relationship changed.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== REFLECTION ===================== -->
+  <section class="reflection" id="reflection">
+    <h2>Reflection</h2>
+    <p>Arguing "yes" was pretty easy because the data already supports it. If you look at life expectancy since 1960, the gap has clearly gotten smaller, so the choices in Visualization 1 mostly make an existing pattern more noticeable. Arguing "no" was much harder, and that is where I learned more. The obvious tricks I tried in the checkpoint, like starting the bars at 40 or using a title like "Going Backward," were easy to notice. Once a reader catches something like that, they start questioning the whole chart. The versions that worked better mostly did not change the marks or axes. Instead, they changed what was being compared, such as the reference point, the time period, or the group of countries being shown.</p>
+    <p>What surprised me most was how little I actually had to change in the data. Every number on the page is correct, and the charts follow standard visualization conventions. The low-income classification was probably the biggest surprise. I used the same World Bank grouping for both sides, but while building Visualization 2, I realized that the classification itself helps the "no" argument because countries that caught up are no longer included in the low-income group. That also means Visualization 1 actually understates the amount of convergence. I had not really thought of a category label as a data transformation before, but it is, and it can be harder to notice than something like a manipulated axis. Ethiopia is a good example. It can look like a success story in one chart and a laggard in another, and both can still be technically correct. The opposite happened when I showed the 1960-to-2019 change for every low-income country. The chart started showing convergence much more clearly because the arrows for the low-income countries were longer than those for the rich countries. The more of the data I showed, the harder it became to support the "no" argument.</p>
+    <p>I now think ethical visualization is less about avoiding specific techniques and more about whether the reader would still reach the same conclusion if they saw the data that was left out. A non-zero baseline, a selected time window, or even a strong title can all be reasonable choices. The test I would use is: if the reader saw the full time series and all the countries, would they still agree with my headline? Visualization 1 mostly passes that test. The full data still shows convergence, although the pattern is more complicated. Visualization 2 does not pass it. Botswana's recovery and the countries that moved out of the low-income group would change the story behind the headline. So I do not think the line is simply between "persuasive" and "neutral" design, because every visualization involves choices that affect what people notice. For me, the difference is between choices that highlight something true about the overall dataset and choices that only work because the reader cannot see the rest of the data.</p>
+
+    <div class="checkpoint">
+      <b>What changed since the checkpoint</b>
+      <ul>
+        <li>Replaced the cherry-picked slope chart (5 success stories vs. 2 rich countries) with a scatter plot of all 188 countries with available data, with population used for size.</li>
+        <li>Replaced the top-5 vs. bottom-5 bar chart, which started its x-axis at 40, with a dot plot of every low-income country against the 1960 benchmark.</li>
+        <li>Added context panels showing the gap over time under 1a and HIV prevalence under 2b, using the same health dataset.</li>
+        <li>Changed the more charged titles, such as "Rapidly Catching Up," "Going Backward," and "Worlds Apart," to more factual, numeric titles.</li>
+        <li>I still lean toward Visualization 1. The gap decreased from 29 to 17 years, so saying the countries are "converging" is accurate, but saying they have "converged" would be too strong.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  Data: World Bank, World Development Indicators, via the course's <a href="https://github.com/ZeningQu/World-Bank-Data-by-Indicators">World Bank Data by Indicators</a> repository (health-raw-2021.csv). Charts generated with <a href="make_charts.py">make_charts.py</a>. DSC 209R, UC San Diego, Fall 2026.
+</div></footer>
+</body>
+</html>
