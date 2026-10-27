@@ -37,7 +37,7 @@
   {
     "title": "Cloudflare AI Chat with Memory",
     "year": "2026",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/cfchat.svg",
     "description": "A chat app on Cloudflare Workers AI (Llama 3.3). A Worker orchestrates the UI and model calls, and Durable Objects store each session's conversation history.",
     "url": "https://github.com/priyanka-nidadavolu/cf_ai_chat_memory_app"
   },
@@ -56,38 +56,38 @@
   {
     "title": "LLM Agent for CI/CD Routing (IBM)",
     "year": "2024",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/llm-ci.svg",
     "description": "A production LLM agent that read code diffs, classified cloud environment impact, and routed CI/CD test runs on its own, cutting cloud compute costs by 40%. Won IBM's Star of the Month."
   },
   {
     "title": "Multi-Cloud Provisioning Backend (IBM)",
     "year": "2023",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/multicloud.svg",
     "description": "A Python backend on IBM Cloud APIs that provisions resources across AWS, Azure, and IBM Cloud."
   },
   {
     "title": "Data Validation Pipeline Rebuild (IBM)",
     "year": "2023",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/validation.svg",
     "description": "Rebuilt a preprocessing pipeline that was silently corrupting downstream ML releases, restructuring the logic end to end and cutting processing time by 90%."
   },
   {
     "title": "Direct Marketing Campaign Analysis",
     "year": "2022",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/tableau.svg",
     "description": "Tableau analysis of a Portuguese bank's direct marketing campaign data.",
     "url": "https://github.com/priyanka-nidadavolu/Data-analysis-using-Tableau"
   },
   {
     "title": "Speech Recognition with Wav2Vec2 (Samsung PRISM)",
     "year": "2021",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/speech.svg",
     "description": "Applied Wav2Vec2 to validate phoneme accuracy against ground truth, improving speech recognition by 10%, and built a pipeline that generated a phoneme dataset from 10,000+ contact names."
   },
   {
     "title": "Online Survey System",
     "year": "2021",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/projects/survey.svg",
     "description": "A web application for creating and answering online surveys, built with Java servlets.",
     "url": "https://github.com/priyanka-nidadavolu/online_survey_system-servlets"
   }

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1f3a"/>
+      <stop offset="1" stop-color="#163a6b"/>
+    </linearGradient>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a6c8ff"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#42be65"/></marker>
+  </defs>
+  <rect width="400" height="200" fill="url(#bg)"/>
+  <rect x="20" y="40" width="100" height="120" rx="8" fill="#ffffff" fill-opacity="0.95"/>
+  <g font-family="ui-monospace, monospace" font-size="11">
+    <rect x="30" y="54" width="80" height="12" fill="#e6ffec"/><text x="34" y="64" fill="#1a7f37">+ cloud.py</text>
+    <rect x="30" y="72" width="80" height="12" fill="#ffebe9"/><text x="34" y="82" fill="#cf222e">- region</text>
+    <rect x="30" y="90" width="80" height="12" fill="#e6ffec"/><text x="34" y="100" fill="#1a7f37">+ retry()</text>
+    <rect x="30" y="108" width="60" height="8" rx="3" fill="#0b1f3a" fill-opacity="0.2"/>
+    <rect x="30" y="122" width="72" height="8" rx="3" fill="#0b1f3a" fill-opacity="0.2"/>
+    <rect x="30" y="136" width="50" height="8" rx="3" fill="#0b1f3a" fill-opacity="0.2"/>
+  </g>
+  <path d="M126,100 L160,100" stroke="#a6c8ff" stroke-width="2.5" marker-end="url(#a)"/>
+  <circle cx="200" cy="100" r="34" fill="#4589ff"/>
+  <g fill="#ffffff"><circle cx="188" cy="94" r="5"/><circle cx="212" cy="94" r="5"/></g>
+  <path d="M186,110 Q200,120 214,110" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="200" y="152" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#a6c8ff">LLM agent</text>
+  <g stroke-width="2.5" fill="none">
+    <path d="M236,90 L300,48" stroke="#42be65" marker-end="url(#g)"/>
+    <path d="M236,100 L300,100" stroke="#42be65" marker-end="url(#g)"/>
+    <path d="M236,110 L300,152" stroke="#a6c8ff" stroke-opacity="0.35" stroke-dasharray="5 5"/>
+  </g>
+  <g font-family="ui-monospace, monospace" font-size="12">
+    <rect x="304" y="32" width="76" height="32" rx="6" fill="#42be65"/><text x="342" y="53" text-anchor="middle" fill="#0b1f3a">run ✓</text>
+    <rect x="304" y="84" width="76" height="32" rx="6" fill="#42be65"/><text x="342" y="105" text-anchor="middle" fill="#0b1f3a">run ✓</text>
+    <rect x="304" y="136" width="76" height="32" rx="6" fill="#ffffff" fill-opacity="0.12" stroke="#a6c8ff" stroke-opacity="0.5"/><text x="342" y="157" text-anchor="middle" fill="#a6c8ff">skip</text>
+  </g>
+  <text x="200" y="186" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#ffffff">−40% compute</text>
+</svg>
