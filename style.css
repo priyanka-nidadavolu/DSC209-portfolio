@@ -7,6 +7,11 @@
 
   /* Lab 3 Step 4.1: follow the OS color scheme by default */
   color-scheme: light dark;
+
+  /* paint the page with the chosen scheme's colors explicitly, so a "Light"
+     choice on a dark-mode OS never shows a dark backdrop behind dark text */
+  background-color: canvas;
+  color: canvastext;
 }
 
 body {
@@ -135,6 +140,8 @@ h1 {
 /* Step 2: navigation bar */
 nav {
   display: flex;
+  /* leave room for the theme switcher above, so it never covers a nav link */
+  margin-top: 2.5rem;
   margin-bottom: 2em;
   border-bottom: 1px solid var(--color-border);
 
