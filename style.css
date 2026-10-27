@@ -199,18 +199,69 @@ form {
     grid-row: span 3;
   }
 
-  h2 {
+  /* cards rendered by renderProjects(): the heading is an h2 on the
+     projects page and an h3 on the home page */
+  h2,
+  h3 {
     margin: 0;
   }
 
-  img {
+  /* the CV section rule below spaces consecutive articles; the grid has its own gap */
+  article + article {
+    margin-top: 0;
+  }
+
+  img,
+  .no-image {
+    width: 100%;
     border-radius: 0.5em;
+  }
+
+  .no-image {
+    aspect-ratio: 2 / 1;
+    background-color: oklch(from var(--color-accent) 95% 5% h / 40%);
+  }
+
+  .project-text p {
+    margin: 0;
+  }
+
+  .project-year {
+    margin-top: 0.5em;
+    font-family: Baskerville, Georgia, serif;
+    font-variant-numeric: oldstyle-nums;
+    color: var(--color-muted);
   }
 
   a {
     color: inherit;
     text-decoration-color: var(--color-accent);
     text-underline-offset: 0.2em;
+  }
+}
+
+/* Lab 4 Step 3: GitHub profile stats */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25em 1em;
+  margin: 0;
+  text-align: center;
+
+  dt {
+    grid-row: 1;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+  }
+
+  dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 2em;
+    line-height: 1.1;
+    color: var(--color-accent);
   }
 }
 

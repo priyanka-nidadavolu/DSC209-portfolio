@@ -5,41 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Priyanka Nidadavolu</title>
     <script type="module" src="../global.js"></script>
+    <script type="module" src="projects.js"></script>
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
-    <h1>Projects</h1>
-    <div class="projects">
-      <article>
-        <h2><a href="https://github.com/datahacks-2026/grid-green" target="_blank">GridGreen</a></h2>
-        <img src="../images/projects/gridgreen.svg" alt="Line chart of forecast grid carbon intensity over 48 hours, with a low-carbon window highlighted and a leaf icon" />
-        <p>2nd Place, Cloud Track at DataHacks 2026. A carbon-aware ML copilot that reads training scripts, estimates compute and CO₂ cost from published scaling laws, and suggests greener models via RAG. Built on Claude via MCP, Databricks DLT, Snowflake, and SageMaker.</p>
-      </article>
-      <article>
-        <h2><a href="https://github.com/priyanka-nidadavolu/socially-aware-recommendation-system" target="_blank">Socially-Aware Recommendation System</a></h2>
-        <img src="../images/projects/recsys.svg" alt="Network of users connected by trust links, feeding a ranked list of starred recommendations" />
-        <p>Top-N ranking on Epinions (664K+ reviews, 49K users) at 99.99% sparsity using social trust-graph features. Beat a published IJCAI 2017 baseline by 6% AUC; deployed with FastAPI and Docker on Hugging Face Spaces (<a href="https://priyankanidada-recommended-systems.hf.space/ui" target="_blank">live demo</a>).</p>
-      </article>
-      <article>
-        <h2><a href="https://github.com/eemilycchen/drug_safety_and_recommendation" target="_blank">MediDB: Clinical Decision Support</a></h2>
-        <img src="../images/projects/medidb.svg" alt="Medical cross connected to three data stores: a graph, a set of vectors, and an EHR table" />
-        <p>Drug safety and recommendation system combining graph queries in Neo4j, vector search over FAERS adverse events in Qdrant, and relational EHR records in PostgreSQL, with ETL from Synthea synthetic data.</p>
-      </article>
-      <article>
-        <h2>Autodiff Engine and Transformer</h2>
-        <img src="../images/projects/autodiff.svg" alt="Computation graph from inputs x and W through multiply and attention to a loss, with gradients flowing backward" />
-        <p>A custom automatic differentiation engine written from scratch, without PyTorch autograd, used to train a decoder-only Transformer with causal self-attention and autoregressive decoding.</p>
-      </article>
-      <article>
-        <h2>GPU Kernels and Distributed Training</h2>
-        <img src="../images/projects/gpu.svg" alt="Tiled matrix with one active tile, next to four GPUs in a ring performing AllReduce" />
-        <p>A fused Triton kernel for ReLU(AB + C) with shared-memory tiling and tuning, plus distributed Transformer training from scratch with MPI: AllReduce, AllToAll, data and tensor parallelism.</p>
-      </article>
-      <article>
-        <h2><a href="https://github.com/priyanka-nidadavolu/gamesoul" target="_blank">GameSoul (in progress)</a></h2>
-        <img src="../images/projects/gamesoul.svg" alt="Nine-axis radar chart of emotion scores beside a game controller" />
-        <p>Emotion-driven game discovery: LLaMA 3 extracts 9-dimensional emotion vectors from Steam reviews, a Thompson sampling bandit personalizes picks, and Kafka streaming supports continual learning.</p>
-      </article>
-    </div>
+    <h1 class="projects-title">Projects</h1>
+    <div class="projects"></div>
   </body>
 </html>

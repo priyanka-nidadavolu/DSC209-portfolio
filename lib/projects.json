@@ -1,0 +1,94 @@
+[
+  {
+    "title": "GridGreen",
+    "year": "2026",
+    "image": "images/projects/gridgreen.svg",
+    "description": "2nd Place, Cloud Track at DataHacks 2026. A carbon-aware ML copilot that reads training scripts, estimates compute and CO₂ cost from published scaling laws, and suggests greener models via RAG. Built on Claude via MCP, Databricks DLT, Snowflake, and SageMaker.",
+    "url": "https://github.com/datahacks-2026/grid-green"
+  },
+  {
+    "title": "Socially-Aware Recommendation System",
+    "year": "2026",
+    "image": "images/projects/recsys.svg",
+    "description": "Top-N ranking on Epinions (664K+ reviews, 49K users) at 99.99% sparsity using social trust-graph features. Beat a published IJCAI 2017 baseline by 6% AUC; deployed with FastAPI and Docker on Hugging Face Spaces.",
+    "url": "https://github.com/priyanka-nidadavolu/socially-aware-recommendation-system"
+  },
+  {
+    "title": "MediDB: Clinical Decision Support",
+    "year": "2026",
+    "image": "images/projects/medidb.svg",
+    "description": "Drug safety and recommendation system combining graph queries in Neo4j, vector search over FAERS adverse events in Qdrant, and relational EHR records in PostgreSQL, with ETL from Synthea synthetic data.",
+    "url": "https://github.com/eemilycchen/drug_safety_and_recommendation"
+  },
+  {
+    "title": "GameSoul (in progress)",
+    "year": "2026",
+    "image": "images/projects/gamesoul.svg",
+    "description": "Emotion-driven game discovery: LLaMA 3 extracts 9-dimensional emotion vectors from Steam reviews, a Thompson sampling bandit personalizes picks, and Kafka streaming supports continual learning.",
+    "url": "https://github.com/priyanka-nidadavolu/gamesoul"
+  },
+  {
+    "title": "Deceptive Visualization: Life Expectancy",
+    "year": "2026",
+    "image": "dsc209-project2/side1_gap.png",
+    "description": "DSC 209R Project 2. Two versions of the same life expectancy data: one chart that exaggerates the gap between rich and poor countries, and an honest one that shows how it has converged.",
+    "url": "dsc209-project2/index.html"
+  },
+  {
+    "title": "Cloudflare AI Chat with Memory",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A chat app on Cloudflare Workers AI (Llama 3.3). A Worker orchestrates the UI and model calls, and Durable Objects store each session's conversation history.",
+    "url": "https://github.com/priyanka-nidadavolu/cf_ai_chat_memory_app"
+  },
+  {
+    "title": "Autodiff Engine and Transformer",
+    "year": "2025",
+    "image": "images/projects/autodiff.svg",
+    "description": "A custom automatic differentiation engine written from scratch, without PyTorch autograd, used to train a decoder-only Transformer with causal self-attention and autoregressive decoding."
+  },
+  {
+    "title": "GPU Kernels and Distributed Training",
+    "year": "2025",
+    "image": "images/projects/gpu.svg",
+    "description": "A fused Triton kernel for ReLU(AB + C) with shared-memory tiling and tuning, plus distributed Transformer training from scratch with MPI: AllReduce, AllToAll, data and tensor parallelism."
+  },
+  {
+    "title": "LLM Agent for CI/CD Routing (IBM)",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A production LLM agent that read code diffs, classified cloud environment impact, and routed CI/CD test runs on its own, cutting cloud compute costs by 40%. Won IBM's Star of the Month."
+  },
+  {
+    "title": "Multi-Cloud Provisioning Backend (IBM)",
+    "year": "2023",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A Python backend on IBM Cloud APIs that provisions resources across AWS, Azure, and IBM Cloud."
+  },
+  {
+    "title": "Data Validation Pipeline Rebuild (IBM)",
+    "year": "2023",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Rebuilt a preprocessing pipeline that was silently corrupting downstream ML releases, restructuring the logic end to end and cutting processing time by 90%."
+  },
+  {
+    "title": "Direct Marketing Campaign Analysis",
+    "year": "2022",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Tableau analysis of a Portuguese bank's direct marketing campaign data.",
+    "url": "https://github.com/priyanka-nidadavolu/Data-analysis-using-Tableau"
+  },
+  {
+    "title": "Speech Recognition with Wav2Vec2 (Samsung PRISM)",
+    "year": "2021",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Applied Wav2Vec2 to validate phoneme accuracy against ground truth, improving speech recognition by 10%, and built a pipeline that generated a phoneme dataset from 10,000+ contact names."
+  },
+  {
+    "title": "Online Survey System",
+    "year": "2021",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A web application for creating and answering online surveys, built with Java servlets.",
+    "url": "https://github.com/priyanka-nidadavolu/online_survey_system-servlets"
+  }
+]

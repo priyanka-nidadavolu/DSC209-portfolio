@@ -105,3 +105,78 @@ form?.addEventListener('submit', function (event) {
   let url = form.action + '?' + params.join('&');
   location.href = url;
 });
+
+// Lab 4, Step 1.2: load JSON from a URL
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+// Lab 4, Step 1.4: render one project, or an array of projects, into a container
+const HEADING_LEVELS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!(containerElement instanceof Element)) {
+    console.error('renderProjects: containerElement is not a valid DOM element');
+    return;
+  }
+
+  if (!HEADING_LEVELS.includes(headingLevel)) {
+    console.warn(`renderProjects: invalid heading level "${headingLevel}", using h2`);
+    headingLevel = 'h2';
+  }
+
+  // Accept a single project object as well as an array
+  projects = Array.isArray(projects) ? projects : projects ? [projects] : [];
+
+  // Clear existing content so re-rendering doesn't duplicate articles
+  containerElement.innerHTML = '';
+
+  if (projects.length === 0) {
+    containerElement.innerHTML = '<p>No projects to show yet.</p>';
+    return;
+  }
+
+  for (let project of projects) {
+    const article = document.createElement('article');
+
+    // Image paths are stored relative to the site root, so prefix BASE_PATH
+    // (external URLs are left alone)
+    const image = project.image
+      ? project.image.startsWith('http')
+        ? project.image
+        : BASE_PATH + project.image
+      : '';
+    const title = project.title ?? 'Untitled project';
+    const heading = project.url
+      ? `<a href="${project.url.startsWith('http') ? project.url : BASE_PATH + project.url}"${
+          project.url.startsWith('http') ? ' target="_blank"' : ''
+        }>${title}</a>`
+      : title;
+
+    article.innerHTML = `
+      <${headingLevel}>${heading}</${headingLevel}>
+      ${image ? `<img src="${image}" alt="${title}">` : '<div class="no-image"></div>'}
+      <div class="project-text">
+        <p>${project.description ?? ''}</p>
+        ${project.year ? `<p class="project-year">${project.year}</p>` : ''}
+      </div>
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
+
+// Lab 4, Step 3: GitHub API
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
