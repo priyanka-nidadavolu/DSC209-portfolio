@@ -340,3 +340,99 @@ section {
     }
   }
 }
+
+/* Lab 5: pie chart, legend, search */
+.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-block: 1em;
+
+  svg {
+    width: 16em;
+    max-width: 100%;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+}
+
+#projects-plot {
+  path {
+    cursor: pointer;
+    transition: 300ms;
+    outline: none;
+  }
+
+  &:has(path:hover, path:focus-visible) {
+    path:not(:hover, :focus-visible) {
+      opacity: 0.5;
+    }
+  }
+
+  /* once a year is selected, fade the others so the choice is obvious
+     even when its color is close to a neighbor's */
+  &:has(path.selected):not(:has(path:hover, path:focus-visible)) {
+    path:not(.selected) {
+      opacity: 0.5;
+    }
+  }
+
+  path:focus-visible {
+    stroke: var(--color-accent);
+    stroke-width: 1;
+  }
+}
+
+.legend {
+  flex: 1;
+  min-width: 12em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 0.75em;
+  margin: 0;
+  padding: 1em;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5em;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+  }
+
+  em {
+    color: var(--color-muted);
+    font-style: normal;
+  }
+}
+
+.swatch {
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  width: 1em;
+  border-radius: 50%;
+  background-color: var(--color);
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+.searchBar {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 1.5em;
+  padding: 0.5em;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5em;
+}
