@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meta | Priyanka Nidadavolu</title>
+    <script type="module" src="../global.js"></script>
+    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <h1>Meta</h1>
+    <p>
+      Stats about the code behind this site, computed from its git history with
+      <a href="https://www.npmjs.com/package/elocuent" target="_blank">elocuent</a> and
+      drawn with D3.
+    </p>
+
+    <section>
+      <h2>Summary stats</h2>
+      <div id="stats"></div>
+    </section>
+
+    <section>
+      <h2>Commits by time of day</h2>
+      <p>
+        Each dot is a commit, placed by the day it was made and the time of day. Bigger dots
+        edited more lines. Drag on the chart to select commits.
+      </p>
+      <div id="chart"></div>
+      <p id="selection-count">No commits selected</p>
+      <dl id="language-breakdown" class="stats"></dl>
+    </section>
+
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+      <dt>Commit</dt>
+      <dd><a href="" id="commit-link" target="_blank"></a></dd>
+
+      <dt>Date</dt>
+      <dd id="commit-date"></dd>
+
+      <dt>Time</dt>
+      <dd id="commit-time"></dd>
+
+      <dt>Author</dt>
+      <dd id="commit-author"></dd>
+
+      <dt>Lines edited</dt>
+      <dd id="commit-lines"></dd>
+    </dl>
+  </body>
+</html>

@@ -487,3 +487,121 @@ section {
   border: 1px solid var(--color-border);
   border-radius: 0.5em;
 }
+
+/* Lab 6: Meta page stats (dl.stats, separate from the home page's ul.stats) */
+dl.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
+  gap: 1em;
+  margin: 1em 0;
+
+  > div {
+    padding: 0.75em 1em;
+    border-radius: 0.75em;
+    background-color: color-mix(in oklch, var(--color-accent), canvas 92%);
+  }
+
+  dt {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+  }
+
+  dd {
+    margin: 0;
+    font-size: 1.6em;
+    line-height: 1.2;
+    color: var(--color-accent);
+    overflow-wrap: anywhere;
+  }
+}
+
+#chart svg {
+  display: block;
+  width: 100%;
+}
+
+.gridlines {
+  stroke-opacity: 0.2;
+
+  .domain {
+    display: none;
+  }
+}
+
+/* dots: scale up on hover without moving their center */
+#chart circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+
+  @starting-style {
+    r: 0;
+  }
+
+  &:hover {
+    transform: scale(1.5);
+  }
+
+  &.selected {
+    fill: var(--color-accent);
+  }
+}
+
+/* brush selection box */
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+#chart .selection {
+  fill-opacity: 0.1;
+  stroke: currentColor;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+#selection-count {
+  margin-block: 1em 0.5em;
+  font-weight: 600;
+}
+
+/* tooltip */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25em 1em;
+  margin: 0;
+
+  dt {
+    color: var(--color-muted);
+    font-size: 0.85em;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 10;
+  padding: 0.75em 1em;
+  border-radius: 0.5em;
+  background-color: color-mix(in oklch, canvas, transparent 20%);
+  box-shadow: 0 0.25em 1em rgb(0 0 0 / 25%);
+  backdrop-filter: blur(6px);
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+
+  &[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+    display: grid; /* keep layout so the fade-out can play */
+  }
+}
