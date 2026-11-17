@@ -2,7 +2,7 @@
   {
     "title": "Bikewatching",
     "year": "2026",
-    "image": "images/projects/bikewatching.svg",
+    "image": "images/projects/bikewatching.png",
     "description": "Interactive Mapbox map of Bluebikes traffic in Boston and Cambridge (March 2024, 260K trips). D3 overlay sizes stations by traffic, colors them by departure vs. arrival balance, and filters by time of day with a slider.",
     "url": "https://priyanka-nidadavolu.github.io/bikewatching/"
   },
