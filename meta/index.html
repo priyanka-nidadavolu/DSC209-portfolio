@@ -16,6 +16,14 @@
       drawn with D3.
     </p>
 
+    <div class="slider-row">
+      <label>
+        Show commits until:
+        <input type="range" id="commit-progress" min="0" max="100" value="100" />
+        <time id="commit-time"></time>
+      </label>
+    </div>
+
     <section>
       <h2>Summary stats</h2>
       <div id="stats"></div>
@@ -25,11 +33,24 @@
       <h2>Commits by time of day</h2>
       <p>
         Each dot is a commit, placed by the day it was made and the time of day. Bigger dots
-        edited more lines. Drag on the chart to select commits.
+        edited more lines. Scroll through the story to watch the repo grow, or drag on the
+        chart to select commits.
       </p>
-      <div id="chart"></div>
-      <p id="selection-count">No commits selected</p>
-      <dl id="language-breakdown" class="stats"></dl>
+
+      <div id="scrolly-1">
+        <div id="scatter-story"></div>
+        <div id="scatter-plot">
+          <div id="chart"></div>
+          <p id="selection-count">No commits selected</p>
+          <dl id="language-breakdown" class="stats"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>The race for the biggest file</h2>
+      <p>Each dot is one line of code, colored by technology. Files are sorted by size.</p>
+      <dl id="files"></dl>
     </section>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
@@ -40,7 +61,7 @@
       <dd id="commit-date"></dd>
 
       <dt>Time</dt>
-      <dd id="commit-time"></dd>
+      <dd id="commit-clock"></dd>
 
       <dt>Author</dt>
       <dd id="commit-author"></dd>
